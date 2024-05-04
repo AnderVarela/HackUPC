@@ -5,11 +5,11 @@
 #TODO: METER RUTA IMAXEN EN VEZ DE FILENAME
 
 import os
-
+import base64
 from pydantic import BaseModel
 
 import similarity
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Form
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
@@ -34,13 +34,15 @@ async def root():
 
 
 @app.post("/uploadfile/")
-async def upload_file(file: UploadFile = File(...)):
+async def upload_file(filename: str = Form(...), filedata: str = Form(...)):
+
+    image_as_bytes = str.encode(filedata)  # convert string to bytes
+    img_recovered = base64.b64decode(image_as_bytes)  # decode base64string
     try:
-        contents = await file.read()
-        tmp_path = "tmp/" + file.filename
+        tmp_path = "tmp/" + filename
         #Save file
         with open(tmp_path, "wb") as f:
-            f.write(contents)
+            f.write(img_recovered)
 
         resultado = similarity.main("dataset", tmp_path)
 
