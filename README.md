@@ -1,16 +1,71 @@
-# Ander's project template
+# InditexTECH HACKUPC2024 CHALLENGE
 
 ## Run
 
-1. Accedemos a la carperta ```frontend```.
+1. Access to ```frontend``` folder.
 ```
 cd frontend
 ```
-2. Instalamos las dependencias.
+2. Install dependencies.
 ```
 npm install
 ```
-3. Iniciamos la aplicación.
+3. Start application.
 ```
 npm start
 ```
+
+## Web Usage
+
+Drag and drop image to the web and wait to get similar images.
+
+# Script Usage
+
+This Python script calculates the similarity between a base image and a dataset of images using structural similarity and color histogram comparison. The results are sorted by similarity and saved to a JSON file.
+
+## Features
+
+- Utilizes structural similarity index (SSIM) and histogram comparison for similarity scoring.
+- Caches processed images for efficiency.
+- Outputs similarity scores in a JSON file, making it easy to use in further data processing.
+
+## Dependencies
+
+- Python 3.x
+- OpenCV
+- NumPy
+- scikit-image
+
+You can install the required libraries using pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Setup
+
+1. Clone the Repository:
+```bash
+git clone https://github.com/AnderVarela/HackUPC.git
+cd HackUPC/scripts
+```
+2. Prepare the Dataset:Place your dataset of images in the images directory.
+3. Configure the Script:Specify the path of your base image in the script.
+
+## Configuration
+Modify the script to correctly point to your image directory and the base image:
+
+- `directory`: Path to the directory containing the image dataset.
+- `base_image_path`: Path to the base image against which other images are compared.
+## Usage
+Run the script by navigating to the project directory and executing:
+```bash
+python similarity.py
+```
+The script processes the images and saves the similarity scores in similarity_scores.json in the current directory.
+
+## Output
+The output JSON file contains a list of filenames and their similarity scores, sorted from the most to the least similar to the base image.
+
+## Note
+Make sure the image paths and the output directory in the script match your setup. Adjust the image processing functions if needed to suit different image types or quality.
