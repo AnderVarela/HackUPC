@@ -4,6 +4,7 @@ import * as actionTypes from './actionTypes';
 const initialState = {
     error: null,
     loading: false,
+    getProduct: null,
 };
 
 const error = (state = initialState.error, action) => {
@@ -40,9 +41,20 @@ const loading = (state = initialState.loading, action) => {
 
 }
 
+const getProduct = (state = initialState.getProduct, action) => {
+    switch (action.type){
+        case actionTypes.GET_PRODUCTS:
+            return action.getProduct;
+
+        default:
+            return state;
+    }
+}
+
 const reducer = combineReducers({
     error,
-    loading
+    loading,
+    getProduct
 });
 
 export default reducer;

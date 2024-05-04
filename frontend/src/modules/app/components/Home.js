@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
 import {useNavigate} from "react-router-dom";
+import * as actions from "../actions";
+import {useDispatch} from "react-redux";
 
 const Home = () => {
     const [imageSrc, setImageSrc] = useState(null); // Estado para almacenar la URL de la imagen
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+
+
 
     // Función para manejar el evento de soltar los archivos
     const handleDrop = (event) => {
@@ -44,8 +49,9 @@ const Home = () => {
     }
 
     // Función backimage() que recibe la ruta de la imagen como parámetro
-    const backimage = (imageSrc) => {
+    const backimage = async (imageSrc) => {
         // Aquí puedes realizar la lógica necesaria con la ruta de la imagen
+        await dispatch(actions.getProduct(imageSrc));
         console.log("Ruta de la imagen seleccionada:", imageSrc);
     }
 
