@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
     const [imageSrc, setImageSrc] = useState(null); // Estado para almacenar la URL de la imagen
+    const navigate = useNavigate();
 
     // Función para manejar el evento de soltar los archivos
     const handleDrop = (event) => {
@@ -34,6 +36,7 @@ const Home = () => {
         if (imageSrc) {
             // Llamamos a la función backimage() pasando la ruta de la imagen como parámetro
             backimage(imageSrc);
+            navigate(`/product`);
         } else {
             // Si no hay imagen seleccionada, mostramos un mensaje de error
             console.log("No hay imagen seleccionada");
