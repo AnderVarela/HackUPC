@@ -9,13 +9,14 @@ export default async function uploadImage(imageBase64) {
         });
 
         if (!response.ok) {
-            throw new Error("Error al enviar la imagen");
+            console.log("Error al enviar la imagen")
+            return null;
         }
 
         const data = await response.json();
         return data;
     } catch (error) {
         console.error("Error al subir la imagen:", error.message);
-        return { error: error.message };
+        return null;
     }
 }
