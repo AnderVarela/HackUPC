@@ -61,7 +61,7 @@
     align-self: stretch;
     border-radius: 15px;
     box-shadow: 0px 4px 4px #00000040;
-    display: inline-flex;
+    display: cender-flex;
     flex: 0 0 auto;
     gap: 10px;
     justify-content: center;
@@ -71,11 +71,20 @@
 }
 
 .sing-up1 .frame-2 {
-    background-color: #c4c4c4;
+    
+    align-items: center;
     border-radius: 15px;
     height: 387px;
     position: relative;
     width: 333px;
+    overflow: hidden;
+}
+
+.foto .frame-2 img {
+    width: 100%; /* Hace que la imagen se estire o encoga para cubrir el ancho del contenedor */
+    height: 100%; /* Hace que la imagen se estire o encoga para cubrir la altura del contenedor */
+    object-fit: auto; /* Asegura que la imagen cubra el contenedor completamente sin distorsión */
+    object-position: center; /* Centra la imagen dentro del contenedor */
 }
 
 .sing-up1 .frame-3 {

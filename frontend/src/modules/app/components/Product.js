@@ -102,7 +102,7 @@ const Product = () => {
             <div className="div">
                 <div className="foto">
                     <div className="frame-2">
-                        <img src={"fotoPrincipal"} alt={"Producto principal"}/>
+                        <img src={fotoPrincipal} alt={"Producto principal"}/>
                     </div>
                 </div>
                 <div className="frame-3">
