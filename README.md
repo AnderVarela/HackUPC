@@ -22,6 +22,7 @@ npm start
 - OpenCV
 - NumPy
 - scikit-image
+- Tensorflow
 
 You can install the required libraries using pip:
 
@@ -68,9 +69,21 @@ Modify the script to correctly point to your image directory and the base image:
 - `base_image_path`: Path to the base image against which other images are compared.
 ## Usage
 Run the script by navigating to the project directory and executing:
+If we want to use the AI model:
 ```bash
-python similarity.py
+python AIsimilarity.py
 ```
+If we just want to use the computer vision model:
+```bash
+python VAsimilarity.py
+```
+Apart from the versions to generate the JSON files, there is also a version to view the results using Matplotlib (shape&color)
+```bash
+python VAshape&color.py
+```bash
+python AIshape&color.py
+``````
+
 The script processes the images and saves the similarity scores in similarity_scores.json in the current directory.
 
 ## Output
