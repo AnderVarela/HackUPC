@@ -1,6 +1,6 @@
 # InditexTECH HACKUPC2024 CHALLENGE
 
-## Run
+## Run Frontend
 
 1. Access to ```frontend``` folder.
 ```
@@ -13,6 +13,28 @@ npm install
 3. Start application.
 ```
 npm start
+```
+
+
+## Dependencies
+
+- Python 3.x
+- OpenCV
+- NumPy
+- scikit-image
+
+You can install the required libraries using pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+
+## Run Backend
+
+1. Run fastapi
+```
+fastapi run main.py
 ```
 
 ## Web Usage
@@ -28,19 +50,6 @@ This Python script calculates the similarity between a base image and a dataset 
 - Utilizes structural similarity index (SSIM) and histogram comparison for similarity scoring.
 - Caches processed images for efficiency.
 - Outputs similarity scores in a JSON file, making it easy to use in further data processing.
-
-## Dependencies
-
-- Python 3.x
-- OpenCV
-- NumPy
-- scikit-image
-
-You can install the required libraries using pip:
-
-```bash
-pip install -r requirements.txt
-```
 
 ## Setup
 
