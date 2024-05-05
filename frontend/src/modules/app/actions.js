@@ -24,3 +24,14 @@ export const getProduct = (text) => async (dispatch) => {
     dispatch(getProductCompleted(await uploadImage(text)));
 
 }
+
+const getFotoCompleted = getFoto => ({
+    type: actionTypes.GET_FOTO,
+    getFoto
+});
+
+export const getFoto = (foto) => async (dispatch) => {
+
+    dispatch(getFotoCompleted(foto));
+
+}

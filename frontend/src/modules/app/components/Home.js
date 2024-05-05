@@ -51,6 +51,7 @@ const Home = () => {
     // Función backimage() que recibe la ruta de la imagen como parámetro
     const backimage = async (imageSrc) => {
         // Aquí puedes realizar la lógica necesaria con la ruta de la imagen
+        dispatch(actions.getFoto(imageSrc));
         await dispatch(actions.getProduct(imageSrc));
         console.log("Ruta de la imagen seleccionada:", imageSrc);
     }

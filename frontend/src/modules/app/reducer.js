@@ -5,6 +5,7 @@ const initialState = {
     error: null,
     loading: false,
     getProduct: null,
+    getFoto: null,
 };
 
 const error = (state = initialState.error, action) => {
@@ -41,6 +42,16 @@ const loading = (state = initialState.loading, action) => {
 
 }
 
+const getFoto = (state = initialState.getFoto, action) => {
+    switch (action.type){
+        case actionTypes.GET_FOTO:
+            return action.getFoto;
+
+        default:
+            return state;
+    }
+}
+
 const getProduct = (state = initialState.getProduct, action) => {
     switch (action.type){
         case actionTypes.GET_PRODUCTS:
@@ -54,7 +65,8 @@ const getProduct = (state = initialState.getProduct, action) => {
 const reducer = combineReducers({
     error,
     loading,
-    getProduct
+    getProduct,
+    getFoto
 });
 
 export default reducer;
