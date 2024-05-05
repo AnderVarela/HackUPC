@@ -52,7 +52,10 @@ import * as selectors from '../selectors';
 
 const Product = () => {
     const productData = useSelector(selectors.getProduct);
+<<<<<<< Updated upstream
     const fotoPrincipal = useSelector(selectors.getFoto)
+=======
+>>>>>>> Stashed changes
 
     if (productData === null) {
         // Muestra el spinner mientras getProduct es null
@@ -101,9 +104,13 @@ const Product = () => {
             </div>
             <div className="div">
                 <div className="foto">
+<<<<<<< Updated upstream
                     <div className="frame-2">
                         <img src={fotoPrincipal} alt={"Producto principal"}/>
                     </div>
+=======
+                    <div className="frame-2" />
+>>>>>>> Stashed changes
                 </div>
                 <div className="frame-3">
                     {imageElements}
@@ -113,4 +120,8 @@ const Product = () => {
     );
 };
 
+<<<<<<< Updated upstream
 export default Product;
+=======
+export default Product;
+>>>>>>> Stashed changes
