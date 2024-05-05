@@ -19,7 +19,7 @@ origins = [
     "http://localhost.tiangolo.com",
     "https://localhost.tiangolo.com",
     "http://localhost",
-    "http://localhost:8080",
+    "http://localhost:8000",
     "http://localhost:3000"
 ]
 
@@ -50,22 +50,23 @@ class Item(BaseModel):
 async def root():
     return {"message": "Hello World"}
 
+from fastapi import HTTPException
 
 @app.post("/uploadfile/")
 async def upload_file(filename: str = Form(...), filedata: str = Form(...)):
-
-    image_as_bytes = str.encode(filedata)  # convert string to bytes
-    img_recovered = base64.b64decode(image_as_bytes)  # decode base64string
     try:
-        tmp_path = "tmp/" + filename
-        #Save file
+        print("Filename received:", filename)
+        print("Filedata size:", len(filedata))
+        
+        image_as_bytes = base64.b64decode(filedata)
+        tmp_path = filename
         with open(tmp_path, "wb") as f:
-            f.write(img_recovered)
+            f.write(image_as_bytes)
 
         resultado = similarity.main("dataset", tmp_path)
-
-        return JSONResponse(resultado)
+        return JSONResponse(content=resultado, status_code=200)
 
     except Exception as e:
-        return e
+        print(f"Error: {e}")  # Esto imprimirá el error en la consola del servidor
+        raise HTTPException(status_code=500, detail=str(e))
 

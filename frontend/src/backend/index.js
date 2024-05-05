@@ -23,11 +23,12 @@ export default async function uploadImage(imageBase64) {
 }
 */
 export default async function uploadImage(imageBase64, filename = "prueba.jpg") {
-    try {
-        const formData = new FormData();
-        formData.append('filename', filename);
-        formData.append('filedata', imageBase64);
+    const base64Data = imageBase64.replace(/^data:image\/[a-z]+;base64,/, "");
+    const formData = new FormData();
+    formData.append('filename', filename);
+    formData.append('filedata', base64Data);
 
+    try {
         const response = await fetch("http://localhost:8000/uploadfile/", {
             method: "POST",
             body: formData
@@ -45,3 +46,4 @@ export default async function uploadImage(imageBase64, filename = "prueba.jpg") 
         return null;
     }
 }
+
