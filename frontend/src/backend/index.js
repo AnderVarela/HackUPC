@@ -46,4 +46,3 @@ export default async function uploadImage(imageBase64, filename = "prueba.jpg") 
         return null;
     }
 }
-
