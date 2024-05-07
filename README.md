@@ -1,5 +1,5 @@
 # InditexTECH HACKUPC2024 CHALLENGE
-
+![VistaWeb1](https://github.com/manuamest/HackUPC2024-WEB/blob/main/WEB1.png)
 ## Run Frontend
 
 1. Access to ```frontend``` folder.
